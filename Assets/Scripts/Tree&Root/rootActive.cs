@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class rootActive : MonoBehaviour
         {
             if (!isTreeActive)
             {
-                ActiveTree();
+                StartCoroutine(ActiveTree());
             }
         }
     }
@@ -43,22 +44,43 @@ public class rootActive : MonoBehaviour
     {
         if(isTreeActive)
         {
-            DeactiveTree();
+            StartCoroutine(DeactiveTree());        
         }
     }
 
-    void ActiveTree()
+    IEnumerator ActiveTree()
     {
+        float fadeTime = GameManager.instance.BgFadeTime;
+
+        Time.timeScale = 0;
+        GameManager.instance.FadeInBackground();
+        yield return new WaitForSecondsRealtime(fadeTime + 0.5f);
+        
         tree.SetActive(true);
         isTreeActive = true;
         rootSprite.color = new Color(1, 1, 1, 0);
+        
+        Time.timeScale = 1;
+        GameManager.instance.FadeBackground();
+        yield return new WaitForSecondsRealtime(fadeTime);
     }
 
-    void DeactiveTree()
+    IEnumerator DeactiveTree()
     {
+        float fadeTime = GameManager.instance.BgFadeTime;
+        
+        Time.timeScale = 0;
+        GameManager.instance.FadeInBackground();
+        yield return new WaitForSecondsRealtime(fadeTime + 0.5f);
+        
         tree.SetActive(false);
         isTreeActive = false;
         rootSprite.color = new Color(1, 1, 1, 1);
+
+
+        Time.timeScale = 1;
+        GameManager.instance.FadeBackground();
+        yield return new WaitForSecondsRealtime(fadeTime);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
