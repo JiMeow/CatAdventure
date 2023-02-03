@@ -9,9 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public bool isJump = false;
 
     Rigidbody2D rb;
+    PlayerAnimationControll playerAnim;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerAnim = GetComponent<PlayerAnimationControll>();
     }
     void Update()
     {
@@ -49,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 isJump = true;
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                playerAnim.AnimationJumpThenGround();
             }
         }
     }
