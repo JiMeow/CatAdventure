@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ResetJump : MonoBehaviour
 {
-    PlayerMovement playerMove;
+    PlayerControll playerMove;
     void Start()
     {
-        playerMove = GetComponentInParent<PlayerMovement>();
+        playerMove = GetComponentInParent<PlayerControll>();
     }
 
     // Update is called once per frame

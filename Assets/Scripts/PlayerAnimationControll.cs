@@ -18,7 +18,25 @@ public class PlayerAnimationControll : MonoBehaviour
 
     IEnumerator JumpThenGround()
     {
-        yield return new WaitForSeconds(0.85f);
+        yield return new WaitForSeconds(0.8f);
         playerAnim.SetBool("Jump", false);
+    }
+
+    public void AnimationAttackThenStop()
+    {
+        playerAnim.SetBool("Attack", true);
+        StartCoroutine(AttackThenStop());
+    }
+
+    IEnumerator AttackThenStop()
+    {
+        yield return new WaitForSeconds(0.75f);
+        playerAnim.SetBool("Attack", false);
+    }
+
+    void ResetBool()
+    {
+        playerAnim.SetBool("Jump", false);
+        playerAnim.SetBool("Attack", false);
     }
 }
