@@ -49,6 +49,12 @@ public class MushroomEnemyMove : MonoBehaviour
         {
             vecToMove = vecLeftToMove;
         }
+        
+        if (vecToMove.x > 0)
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        else
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
         vecLeftToMove -= vecToMove;
         transform.position += vecToMove;
     }

@@ -10,6 +10,12 @@ public class MushroomControll : MonoBehaviour
         {
             GameObject tomb = Resources.Load("TombGround") as GameObject;
             GameObject newTomb = Instantiate(tomb, transform.position, Quaternion.identity);
+            
+            if(transform.localScale.x < 0)
+                newTomb.transform.localScale = new Vector3(-newTomb.transform.localScale.x, newTomb.transform.localScale.y, newTomb.transform.localScale.z);
+            if (transform.localScale.x > 0)
+                newTomb.transform.localScale = new Vector3(newTomb.transform.localScale.x, newTomb.transform.localScale.y, newTomb.transform.localScale.z);
+            
             Destroy(gameObject);
         }
     }
@@ -20,6 +26,12 @@ public class MushroomControll : MonoBehaviour
         {
             GameObject tomb = Resources.Load("TombGround") as GameObject;
             GameObject newTomb = Instantiate(tomb, transform.position, Quaternion.identity);
+
+            if (transform.localScale.x < 0)
+                newTomb.transform.localScale = new Vector3(-newTomb.transform.localScale.x, newTomb.transform.localScale.y, newTomb.transform.localScale.z);
+            if (transform.localScale.x > 0)
+                newTomb.transform.localScale = new Vector3(newTomb.transform.localScale.x, newTomb.transform.localScale.y, newTomb.transform.localScale.z);
+
             Destroy(gameObject);
         }
     }
