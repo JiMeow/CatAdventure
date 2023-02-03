@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 9058544357285839020}
   - component: {fileID: 9058544357285839021}
   m_Layer: 0
-  m_Name: Hitarea
-  m_TagString: Untagged
+  m_Name: AttackArea
+  m_TagString: AttackArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

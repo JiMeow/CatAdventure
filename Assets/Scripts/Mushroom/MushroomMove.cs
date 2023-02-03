@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MushroomEnemyMove : MonoBehaviour
+public class MushroomMove : MonoBehaviour
 {
     public float speed;
 
     Vector3 vecLeftToMove;
+    Animator mushroomAnim;
     void Start()
     {
-        
+        mushroomAnim = GetComponent<Animator>();
     }
 
     void Update()
@@ -45,6 +46,16 @@ public class MushroomEnemyMove : MonoBehaviour
     void MoveToPlayer()
     {
         Vector3 vecToMove = vecLeftToMove.normalized * speed;
+
+        if (vecLeftToMove.magnitude < 0.1f)
+        {
+            mushroomAnim.SetBool("Walk", false);
+        }
+        else
+        {
+            mushroomAnim.SetBool("Walk", true);
+        }
+
         if (vecToMove.magnitude > vecLeftToMove.magnitude)
         {
             vecToMove = vecLeftToMove;
