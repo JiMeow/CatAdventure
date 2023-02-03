@@ -32,7 +32,7 @@ public class BgMovedown : MonoBehaviour
         {
             Restart();
         }
-        transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
+        transform.localPosition = new Vector3(0, transform.localPosition.y - speed, 0);
         leftHeight -= speed;
     }
 
