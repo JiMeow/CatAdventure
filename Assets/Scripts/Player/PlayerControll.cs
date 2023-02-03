@@ -9,12 +9,15 @@ public class PlayerControll : MonoBehaviour
     public bool isJump = false;
     public bool isAttack = false;
 
+    GameObject attackArea;
     Rigidbody2D rb;
     PlayerAnimationControll playerAnim;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<PlayerAnimationControll>();
+        attackArea = transform.Find("AttackArea").gameObject;
+        attackArea.SetActive(false);
     }
     void Update()
     {
@@ -70,6 +73,7 @@ public class PlayerControll : MonoBehaviour
         {
             if(!isAttack)
             {
+                attackArea.SetActive(true);
                 isAttack = true;
                 playerAnim.AnimationAttackThenStop();
                 StartCoroutine(AttackThenStop());
@@ -81,6 +85,7 @@ public class PlayerControll : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75f);
         isAttack = false;
+        attackArea.SetActive(false);
     }
     
     public void ResetJump()
