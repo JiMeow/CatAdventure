@@ -22,6 +22,9 @@ public class Goal : MonoBehaviour
     IEnumerator GoalScene()
     {
         yield return new WaitForSecondsRealtime(GameManager.instance.BgFadeTime + 0.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().name == "Stage3" && CountPlantTree.instance.countPlantTree >= 8)
+            SceneManager.LoadScene("Thanks2");
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
