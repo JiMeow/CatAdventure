@@ -11,6 +11,7 @@ public class PlayerControll : MonoBehaviour
     public bool isDie = false;
 
     public Rigidbody2D rb;
+    public GameObject dialogue;
     GameObject attackArea;
     PlayerAnimationControll playerAnim;
     PlayerManager playerManage;
@@ -24,6 +25,8 @@ public class PlayerControll : MonoBehaviour
         playerManage = GetComponent<PlayerManager>();
         attackArea = transform.Find("AttackArea").gameObject;
         attackArea.SetActive(false);
+        dialogue = GameObject.Find("Dialogue");
+        dialogue.SetActive(false);
     }
     void Update()
     {
@@ -107,7 +110,8 @@ public class PlayerControll : MonoBehaviour
         
         if (transform.position.y < -10 || Input.GetKeyDown(KeyCode.K))
         {
-            PlayerDie();
+            if (!isDie)
+                PlayerDie();
         }
     }
 

@@ -21,7 +21,10 @@ public class PlayerManager : MonoBehaviour
     {
         if (isDead)
             return;
+
         isDead = true;
+        playerControll.isDie = true;
+        playerControll.dialogue.SetActive(true);
         playerAnim.AnimationDie();
         SoundManager.instance.PlayDieSound();
         float fadeTime = GameManager.instance.BgFadeTime;
@@ -30,10 +33,10 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator PlayerDie(float fadeTime)
     {
-        playerControll.isDie = true;
         GameManager.instance.FadeInBackground();
         yield return new WaitForSecondsRealtime(fadeTime + 0.5f);
-        if(CheckPointControll.instance.isChecked)
+        playerControll.dialogue.SetActive(false);
+        if (CheckPointControll.instance.isChecked)
         {
             transform.position = CheckPointControll.instance.lastCheckPointPos;
             playerAnim.ResetBool();
@@ -45,6 +48,8 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
+            playerControll.isDie = false;
+            isDead = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

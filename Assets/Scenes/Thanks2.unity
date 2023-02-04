@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 1778280972}
   - component: {fileID: 1778280973}
   m_Layer: 0
-  m_Name: Dialogue
+  m_Name: ThankDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
