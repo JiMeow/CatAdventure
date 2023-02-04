@@ -20,7 +20,10 @@ public class ResetJump : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player")
         {
-            playerMove.ResetJump();
+            if (collision.isTrigger == false)
+            {
+                playerMove.ResetJump();
+            }
         }
     }
 
@@ -28,7 +31,10 @@ public class ResetJump : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player")
         {
-            playerMove.ResetJump();
+            if (collision.isTrigger == false)
+            {
+                playerMove.ResetJump();
+            }
         }
     }
 }
