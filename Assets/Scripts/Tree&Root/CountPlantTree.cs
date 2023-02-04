@@ -21,7 +21,7 @@ public class CountPlantTree : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    void Update()
     {
         if (SceneManager.GetActiveScene().name == "Menu")
         {
