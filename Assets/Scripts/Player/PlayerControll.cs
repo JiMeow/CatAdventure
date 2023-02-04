@@ -24,6 +24,7 @@ public class PlayerControll : MonoBehaviour
     }
     void Update()
     {
+        CheckBackToMainMenu();
         if (isDie)
         {
             rb.velocity = Vector2.zero;
@@ -102,6 +103,14 @@ public class PlayerControll : MonoBehaviour
         if (transform.position.y < -10 || Input.GetKeyDown(KeyCode.K))
         {
             PlayerDie();
+        }
+    }
+
+    void CheckBackToMainMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            GameManager.instance.BackToMainMenu();
         }
     }
 

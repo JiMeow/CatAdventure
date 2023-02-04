@@ -98,4 +98,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BackToMainMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 }
