@@ -35,6 +35,6 @@ public class Dialogue : MonoBehaviour
                 yield return new WaitForSeconds(typeSpeed);
             }
         }
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
 }
