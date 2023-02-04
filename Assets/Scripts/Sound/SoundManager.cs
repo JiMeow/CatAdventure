@@ -34,18 +34,37 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource CheckPointSound;
 
-    public float SFXVolume = 0.5f;
-    public float BGMVolume = 0.5f;
+    public float SFXVolume = 1f;
+    public float BGMVolume = 1f;
+
+    float BgSoundOriginalVolume;
+    float AttackSoundOriginalVolume;
+    float JumpSoundOriginalVolume;
+    float DieSoundOriginalVolume;
+    float GoalSoundOriginalVolume;
+    float ButtonSoundOriginalVolume;
+    float CheckPointSoundOriginalVolume;
+
+    private void Start()
+    {
+        BgSoundOriginalVolume = BgSound.volume;
+        AttackSoundOriginalVolume = AttackSound.volume;
+        JumpSoundOriginalVolume = JumpSound.volume;
+        DieSoundOriginalVolume = DieSound.volume;
+        GoalSoundOriginalVolume = GoalSound.volume;
+        ButtonSoundOriginalVolume = ButtonSound.volume;
+        CheckPointSoundOriginalVolume = CheckPointSound.volume;
+    }
 
     private void Update()
     {
-        BgSound.volume = BGMVolume;
-        AttackSound.volume = SFXVolume;
-        JumpSound.volume = SFXVolume;
-        DieSound.volume = SFXVolume;
-        GoalSound.volume = SFXVolume;
-        ButtonSound.volume = SFXVolume;
-        CheckPointSound.volume = SFXVolume;
+        BgSound.volume = BgSoundOriginalVolume * BGMVolume;
+        AttackSound.volume = AttackSoundOriginalVolume * SFXVolume;
+        JumpSound.volume = JumpSoundOriginalVolume * SFXVolume;
+        DieSound.volume = DieSoundOriginalVolume * SFXVolume;
+        GoalSound.volume = GoalSoundOriginalVolume * SFXVolume;
+        ButtonSound.volume = ButtonSoundOriginalVolume * SFXVolume;
+        CheckPointSound.volume = CheckPointSoundOriginalVolume * SFXVolume;
     }
 
     public void PlayBgSound()
