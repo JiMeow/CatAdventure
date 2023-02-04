@@ -1268,6 +1268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d485a330ade0c143ab40180cfe4c32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followX: 0
+  followY: 0
 --- !u!1 &333534404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,6 +1705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d485a330ade0c143ab40180cfe4c32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followX: 1
+  followY: 0
 --- !u!4 &526881057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4422655946139045042, guid: aa1311f37264908478cb17d513c6b6f5, type: 3}
@@ -1951,11 +1955,11 @@ Transform:
   - {fileID: 1029562124}
   - {fileID: 1590068530}
   - {fileID: 2124294563}
+  - {fileID: 1147155540}
   - {fileID: 1139871443}
   - {fileID: 212283915}
-  - {fileID: 1147155540}
-  - {fileID: 670900290}
   - {fileID: 2142593965}
+  - {fileID: 670900290}
   - {fileID: 2145630564}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -13202,7 +13206,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 844240044}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1147155541
 SpriteRenderer:
@@ -16923,7 +16927,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 844240044}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2142593966
 BoxCollider2D:

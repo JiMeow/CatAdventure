@@ -38,7 +38,7 @@ public class BgMovedown : MonoBehaviour
 
     void Restart()
     {
-        transform.position = startPos;
+        transform.localPosition = new Vector3(0, 0, 0);
         leftHeight = height;
     }
 }
