@@ -17,8 +17,8 @@ public class RootActive : MonoBehaviour
         name = gameObject.name.Split('_');
         string treeName = "Tree" + '_' + name[1] + '_' + name[2];
         tree = GameObject.Find(treeName);
-        tree.SetActive(false);
-
+        if (tree != null)
+            tree.SetActive(false);
         rootSprite = GetComponent<SpriteRenderer>();
     }
     
