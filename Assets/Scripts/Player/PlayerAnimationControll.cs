@@ -34,6 +34,11 @@ public class PlayerAnimationControll : MonoBehaviour
         playerAnim.SetBool("Attack", false);
     }
 
+    public void AnimationDie()
+    {
+        playerAnim.SetBool("Die", true);
+    }
+
     void ResetBool()
     {
         playerAnim.SetBool("Jump", false);

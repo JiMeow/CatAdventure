@@ -8,24 +8,37 @@ public class PlayerControll : MonoBehaviour
     public float jumpForce;
     public bool isJump = false;
     public bool isAttack = false;
+    public bool isDie = false;
+
 
     GameObject attackArea;
     Rigidbody2D rb;
     PlayerAnimationControll playerAnim;
+    PlayerManager playerManage;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<PlayerAnimationControll>();
+        playerManage = GetComponent<PlayerManager>();
         attackArea = transform.Find("AttackArea").gameObject;
         attackArea.SetActive(false);
     }
     void Update()
     {
+        if (isDie)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         Attack();
         Jump();
+        CheckDie();
+        ActiveHelp();
     }
     void FixedUpdate()
     {
+        if (isDie)
+            return;
         Move();
     }
     void Move()
@@ -61,6 +74,7 @@ public class PlayerControll : MonoBehaviour
             if (!isJump)
             {
                 isJump = true;
+                rb.velocity = Vector2.zero;
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 playerAnim.AnimationJumpThenGround();
             }
@@ -81,6 +95,25 @@ public class PlayerControll : MonoBehaviour
         }
     }
 
+    void CheckDie()
+    {
+        if (isJump || isAttack)
+            return;
+        
+        if (transform.position.y < -10 || Input.GetKeyDown(KeyCode.K))
+        {
+            PlayerDie();
+        }
+    }
+
+    void ActiveHelp()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            GameManager.instance.ActiveHelpUI();
+        }
+    }
+
     IEnumerator AttackThenStop()
     {
         yield return new WaitForSeconds(0.75f);
@@ -91,5 +124,12 @@ public class PlayerControll : MonoBehaviour
     public void ResetJump()
     {
         isJump = false;
+    }
+    
+    public void PlayerDie()
+    {
+        isDie = true;
+        rb.velocity = Vector2.zero;
+        playerManage.PlayerDie();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rootActive : MonoBehaviour
+public class RootActive : MonoBehaviour
 {
     bool isRootActive = false;
     bool isTreeActive = false;

@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public float BgFadeTime;
     public int BgStepFade;
+    
+    
     GameObject bg;
+    bool showHelpUI = false;
+    GameObject[] helpUI;
+
 
     void Awake()
     {
@@ -23,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        helpUI = GameObject.FindGameObjectsWithTag("HelpUI");
+        HideHelpUI();
         bg = GameObject.Find("Bg");
         FadeBackground();
     }
@@ -60,6 +68,34 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(fadeTime * timePerStep);
         }
     }
+    public void ActiveHelpUI()
+    {
+        if (showHelpUI)
+        {
+            showHelpUI = false;
+            HideHelpUI();
+        }
+        else
+        {
+            showHelpUI = true;
+            ShowHelpUI();
+        }
+    }
 
+    public void ShowHelpUI()
+    {
+        foreach (GameObject ui in helpUI)
+        {
+            ui.SetActive(true);
+        }
+    }
+
+    public void HideHelpUI()
+    {
+        foreach (GameObject ui in helpUI)
+        {
+            ui.SetActive(false);
+        }
+    }
 
 }

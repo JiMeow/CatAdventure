@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - AttackArea
+  - HelpUI
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2189504577
     locked: 0

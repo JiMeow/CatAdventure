@@ -205,10 +205,11 @@ GameObject:
   - component: {fileID: 9058544357666157853}
   - component: {fileID: 9058544357666157852}
   - component: {fileID: 9058544357666157848}
+  - component: {fileID: 9058544357666157849}
+  - component: {fileID: 1545670678046663891}
   - component: {fileID: 9058544357666157855}
   - component: {fileID: 9058544357666157850}
   - component: {fileID: 9058544357666157851}
-  - component: {fileID: 9058544357666157849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -301,6 +302,31 @@ MonoBehaviour:
   jumpForce: 40
   isJump: 0
   isAttack: 0
+  isDie: 0
+--- !u!114 &9058544357666157849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058544357666157854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696a57fef6af8a84093a144f2e9fdc31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1545670678046663891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058544357666157854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84486b3c2a8a004e9b11830ee21e869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &9058544357666157855
 Rigidbody2D:
   serializedVersion: 4
@@ -368,15 +394,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9058544357666157849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9058544357666157854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 696a57fef6af8a84093a144f2e9fdc31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
