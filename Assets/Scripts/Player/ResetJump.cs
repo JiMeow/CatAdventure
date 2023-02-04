@@ -31,6 +31,4 @@ public class ResetJump : MonoBehaviour
             playerMove.ResetJump();
         }
     }
-
-
 }

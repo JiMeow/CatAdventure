@@ -32,7 +32,20 @@ public class PlayerManager : MonoBehaviour
         playerControll.isDie = true;
         GameManager.instance.FadeInBackground();
         yield return new WaitForSecondsRealtime(fadeTime + 0.5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(CheckPointControll.instance.isChecked)
+        {
+            transform.position = CheckPointControll.instance.lastCheckPointPos;
+            playerAnim.ResetBool();
+            GameManager.instance.FadeBackground();
+            yield return new WaitForSecondsRealtime(fadeTime - 0.5f);
+            playerControll.isDie = false;
+            isDead = false;
+            
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

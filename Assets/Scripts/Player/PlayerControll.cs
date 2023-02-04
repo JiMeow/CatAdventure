@@ -10,9 +10,8 @@ public class PlayerControll : MonoBehaviour
     public bool isAttack = false;
     public bool isDie = false;
 
-
+    public Rigidbody2D rb;
     GameObject attackArea;
-    Rigidbody2D rb;
     PlayerAnimationControll playerAnim;
     PlayerManager playerManage;
     void Start()
