@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
             return;
         isDead = true;
         playerAnim.AnimationDie();
+        SoundManager.instance.PlayDieSound();
         float fadeTime = GameManager.instance.BgFadeTime;
         StartCoroutine(PlayerDie(fadeTime));
     }

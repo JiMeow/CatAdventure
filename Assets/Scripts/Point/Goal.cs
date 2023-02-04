@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            SoundManager.instance.PlayGoalSound();
             GameManager.instance.FadeInBackground();
             StartCoroutine(GoalScene());
         }

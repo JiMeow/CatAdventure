@@ -73,6 +73,7 @@ public class PlayerControll : MonoBehaviour
         {
             if (!isJump)
             {
+                SoundManager.instance.PlayJumpSound();
                 isJump = true;
                 rb.velocity = Vector2.zero;
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -87,6 +88,7 @@ public class PlayerControll : MonoBehaviour
         {
             if(!isAttack)
             {
+                SoundManager.instance.PlayAttackSound();
                 attackArea.SetActive(true);
                 isAttack = true;
                 playerAnim.AnimationAttackThenStop();
