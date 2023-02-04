@@ -14,8 +14,11 @@ public class PlayerControll : MonoBehaviour
     GameObject attackArea;
     PlayerAnimationControll playerAnim;
     PlayerManager playerManage;
+    GameObject bg;
+    
     void Start()
     {
+        bg = GameObject.Find("Bg");
         rb = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<PlayerAnimationControll>();
         playerManage = GetComponent<PlayerManager>();
@@ -86,7 +89,7 @@ public class PlayerControll : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J) || Input.GetMouseButtonDown(0))
         {
-            if(!isAttack)
+            if(!isAttack && bg.GetComponent<SpriteRenderer>().color.a < 0.1f)
             {
                 SoundManager.instance.PlayAttackSound();
                 attackArea.SetActive(true);

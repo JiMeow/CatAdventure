@@ -9,6 +9,8 @@ TagManager:
   - HelpUI
   - CheckPoint
   - SlidePlatform
+  - RootTree
+  - Tree
   layers:
   - Default
   - TransparentFX

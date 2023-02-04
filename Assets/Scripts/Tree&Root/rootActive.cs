@@ -10,6 +10,7 @@ public class RootActive : MonoBehaviour
     
     GameObject tree;
     SpriteRenderer rootSprite;
+    GameObject bg;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class RootActive : MonoBehaviour
         if (tree != null)
             tree.SetActive(false);
         rootSprite = GetComponent<SpriteRenderer>();
+        bg = GameObject.Find("Bg");
     }
     
     void Update()
@@ -33,7 +35,7 @@ public class RootActive : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (!isTreeActive)
+            if (!isTreeActive && bg.GetComponent<SpriteRenderer>().color.a < 0.1f)
             {
                 StartCoroutine(ActiveTree());
             }
