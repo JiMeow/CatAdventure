@@ -2366,6 +2366,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2455,6 +2456,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followX: 1
   followY: 1
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35629f088ff2b4848af599dfd41a4ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orthographicSize: 5
+  aspect: 1.7777778
 --- !u!1 &526638412
 GameObject:
   m_ObjectHideFlags: 0
@@ -9623,6 +9638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ed3d99458284447b6af5d1e01e14f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStartFight: 0
 --- !u!1 &1946496549
 GameObject:
   m_ObjectHideFlags: 0
@@ -10317,6 +10333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1742248432}
     m_Modifications:
+    - target: {fileID: 7902937616088017223, guid: b6691ee85daa73947a7fef9ea60b99fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9058544356741364547, guid: b6691ee85daa73947a7fef9ea60b99fc, type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -43,7 +43,6 @@ public class BossControll : MonoBehaviour
         RaycastHit2D hitLeft = Physics2D.Raycast(vecToRay - transform.right, -transform.right, 7);
         if (hitLeft.collider != null)
         {
-            Debug.Log(hitLeft.collider.name);
             if (hitLeft.collider.tag == "Player")
             {
                 return true;
@@ -72,7 +71,6 @@ public class BossControll : MonoBehaviour
 
     void TrueEnding()
     {
-        Debug.Log("TrueEnding");
         dialogue.PlayTrueEndingDialogue();
     }
 
